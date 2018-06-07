@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>jQuery Event</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+        p {
+            font-size: 20px;
+            padding-bottom: 10px;
+        }
+
+        #div1,
+        #div2,
+        #div3 {
+            width: 80px;
+            height: 80px;
+            display: none;
+
+        }
+
+        .div1,
+        .div2,
+        .div3,
+        .div4,
+        .div5,
+        .div6 {
+            background-color: #f5d6b0;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #e4ae6c;
+        }
+
+        .div2 {
+            padding: 60px;
+            display: none;
+        }
+
+        .div4 {
+            padding: 60px;
+        }
+
+        .div6 {
+            padding: 60px;
+        }
+
+        .six .div7 {
+            background-color: aqua;
+            height: 100px;
+            width: 100px;
+            padding: 10px;
+            position: absolute;
+        }
+
+        .div8 {
+            height: 90px;
+            width: 110px;
+            background-color: darkblue;
+            color: white;
+            padding: 20px;
+        }
+
+
+        .ten,
+        .nine,
+        .eight,
+        .seven,
+        .six,
+        .five,
+        .fore,
+        .three,
+        .two,
+        .one {
+            max-width: 350px;
+            margin: 0 auto;
+            margin-bottom: 25px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div class="one">
+        <p>Lorem ipsum dolor sit amet p1</p>
+        <p>Lorem ipsum dolor sit amet p2</p>
+        <p id="p3">Lorem ipsum dolor sit amet p3</p>
+        <p>Lorem ipsum dolor sit amet p4</p>
+        <p id="p5">Lorem ipsum dolor sit amet p5</p>
+        <p>Lorem ipsum dolor sit amet p6</p>
+    </div>
+
+
+    <div class="two">
+        <h1>heading 1</h1>
+        <h2>heading 2</h2>
+        <h3>heading 3</h3>
+        <h4>heading 4</h4>
+        <h5>heading 5</h5>
+        <br>
+        <button class="btn_click" type="button">
+            click
+        </button>
+        <br>
+
+    </div>
+
+    <div class="three">
+        <input type="text"><br>
+        <input type="text">
+        <button class="btn_enter" type="button">
+            mouseenter/click
+        </button>
+    </div>
+
+    <div class="fore">
+
+        <button type="button" class="btn_fore">Double click</button>
+        <div id="div1" style="background-color:red;"></div>
+        <div id="div2" style="background-color:green;"></div>
+        <div id="div3" style="background-color:blue;"></div>
+    </div>
+
+    <div class="five">
+        <div class="div1">click for slide down</div>
+        <div class="div2">example for slide down</div><br>
+        <div class="div3">click for slide up</div>
+        <div class="div4">example for slide up</div><br>
+        <div class="div5">click for slide toggle</div>
+        <div class="div6">example for slide toggle</div>
+    </div>
+    <br>
+
+    <div class="six">
+        <button type="button">click</button><br><br>
+        <div class="div7">example of animation</div>
+        <br><br>
+    </div>
+    <br><br>
+    <br><br>
+    <div class="seven">
+        <button type="button" class="btn">click</button>
+        <div class="div8">example of ainimation</div>
+    </div>
+
+    <div class="eight">
+        <p id="test">This is some <b>bold</b> text in a paragraph.</p>
+
+        <button id="btn1">Show Text</button>
+        <button id="btn2">Show HTML</button>
+
+    </div>
+
+    <div class="nine">
+        <p id="test1">This is a paragraph.</p>
+        <p id="test2">This is another paragraph.</p>
+
+        <p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+
+        <button id="btn1">Set Text</button>
+        <button id="btn2">Set HTML</button>
+        <button id="btn3">Set Value</button>
+        <br><br>
+
+        <p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
+
+        <button id="btn4" type="button">Change href Value</button>
+    </div>
+
+    <div class="ten">
+        <p>This is a paragraph.</p>
+        <p>This is another paragraph.</p>
+
+        <ol>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+        </ol>
+
+        <button id="btn1">Append text</button>
+        <button id="btn2">Append list items</button><br>
+        <button id="btn3">Prepend text</button>
+        <button id="btn4">Prepend list item</button>
+    </div>
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("p").click(function() {
+                $("p:first").hide(2000);
+            });
+
+            $("p").dblclick(function() {
+                $(this).hide();
+            });
+
+            $("#p3").mouseenter(function() {
+                alert("This event work for mouseenter on p3");
+            });
+
+            $("#p5").mouseleave(function() {
+                alert("This event work for mouseleave on p5");
+            });
+
+            $("h1").mousedown(function() {
+                alert("This event work for mouse down on h1");
+            });
+
+            $("h4").mouseup(function() {
+                alert("This event work for mouse up on h4");
+            });
+
+            $("h5").hover(function() {
+                    alert("This event work for mouse hover in, on h5");
+                },
+                function() {
+                    alert("This event wort fof mouse hover out, on h5");
+                });
+
+            $("input").focus(function() {
+                $(this).css("background-color", "red");
+            });
+            $("input").blur(function() {
+                $(this).css("background-color", "#fff");
+            });
+
+            $(".btn_enter").on({
+                mouseenter: function() {
+                    $(".three").css("background", "green");
+                },
+                click: function() {
+                    $(".two").css("background", "#dfdfdf");
+                    $(".one").toggle(2000);
+                }
+            });
+
+            $(".btn_fore").dblclick(function() {
+                $("#div1").fadeToggle();
+                $("#div2").fadeToggle("slow");
+                $("#div3").fadeToggle(4000);
+                $("h2").fadeTo(2000, .55);
+            });
+
+            $(".div1").click(function() {
+                $(".div2").slideDown(2000);
+            });
+
+            $(".div3").click(function() {
+                $(".div4").slideUp(2000);
+            });
+
+            $(".div5").click(function() {
+                $(".div6").slideToggle(2000);
+            });
+
+            $(".six button").click(function() {
+                $(".div7").animate({
+                    right: '100px',
+                    opacity: '.5',
+                    height: '150px',
+                    width: '150px',
+                }, 2000);
+            });
+
+            $(".seven .btn").click(function() {
+                var abc = $(".div8");
+                abc.animate({
+                    height: '300px',
+                    opacity: '.4'
+                }, 2000);
+                abc.animate({
+                    width: '320px',
+                    opacity: '.8'
+                }, 2000);
+                abc.animate({
+                    height: '90px',
+                    opacity: '.4'
+                }, 2000);
+                abc.animate({
+                    width: '110px',
+                    opacity: '1'
+                }, 2000);
+            });
+
+            $("#btn1").click(function() {
+                alert("Text: " + $("#test").text());
+            });
+            $("#btn2").click(function() {
+                alert("HTML: " + $("#test").html());
+            });
+
+            $(".nine #btn1").click(function() {
+                $(".nine #test1").text("Hello world!");
+            });
+            $(".nine #btn2").click(function() {
+                $(".nine #test2").html("<b>Hello world!</b>");
+            });
+            $(".nine #btn3").click(function() {
+                $(".nine #test3").val("Dolly Duck");
+            });
+
+            $(".nine #btn4").click(function() {
+                $("#w3s").attr("href", function(i, origValue) {
+                    return origValue + "/jquery/";
+                });
+            });
+
+            $(".ten #btn1").click(function() {
+                $(".ten p").append(" <b>Appended text</b>.");
+            });
+
+            $(".ten #btn2").click(function() {
+                $(".ten ol").append("<li>Appended item</li>");
+            });
+
+            $(".ten #btn3").click(function() {
+                $(".ten p").prepend("<i><b>Prepended text</b>.</i> ");
+            });
+            $(".ten #btn4").click(function() {
+                $(".ten ol").prepend("<li><i>Prepended item</i></li>");
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
